@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
 import { ProductListComponent } from './components/products/product-list/product-list.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { CheckOutComponent } from './components/check-out/check-out.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
   { path: 'product-list', component: ProductListComponent },
-  { path: 'shopping-cart', component: ShoppingCartComponent },
-  { path: 'login', component: SignInComponent },
-  { path: 'checkout', component: CheckOutComponent },
-  { path: 'cart', component: ShoppingCartComponent },
+  { path: 'blog', loadChildren: () => import('./components/blog/blog.module').then(m => m.BlogModule) },
+  { path: 'check-out', loadChildren: () => import('./components/check-out/check-out.module').then(m => m.CheckOutModule) },
+  { path: 'home', loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule) },
+  { path: 'products', loadChildren: () => import('./components/products/products.module').then(m => m.ProductsModule) },
+  { path: 'register', loadChildren: () => import('./components/register/register.module').then(m => m.RegisterModule) },
+  { path: 'cart', loadChildren: () => import('./components/shopping-cart/shopping-cart.module').then(m => m.ShoppingCartModule) },
+  { path: 'login', loadChildren: () => import('./components/sign-in/sign-in.module').then(m => m.SignInModule) },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
