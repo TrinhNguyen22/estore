@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+<nav class="header-top top-bg navbar navbar-expand-md navbar-light">
   <div class="container-fluid">
     <div class="col-xl-12">
       <div class="row d-flex justify-content-between align-items-center">
@@ -9,19 +9,19 @@
           <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
               <li>
-                <a class="dropdown-item" routerLink="/login">My Account</a>
+                <a routerLink="/login">My Account</a>
               </li>
               <li>
-                <a class="dropdown-item" routerLink="/product-list">Wish List</a>
+                <a routerLink="/product-list">Wish List</a>
               </li>
               <li>
-                <a class="dropdown-item" routerLink="/cart">Shopping</a>
+                <a routerLink="/cart">Shopping</a>
               </li>
               <li>
-                <a class="dropdown-item" routerLink="/cart">Cart</a>
+                <a routerLink="/cart">Cart</a>
               </li>
               <li>
-                <a class="dropdown-item" routerLink="/check-out">Checkout</a>
+                <a routerLink="/check-out">Checkout</a>
               </li>
             </ul>
           </div>
@@ -43,36 +43,36 @@
       <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">
         <nav class="navbar navbar-expand-md">
           <div class="main-menu f-right d-none d-lg-block">
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-              <ul class="navbar-nav mr-auto">
+            <nav>
+              <ul id="navigation">
                 <li>
-                  <a class="dropdown-item" routerLink="/">Home</a>
+                  <a routerLink="/">Home</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" routerLink="/">Catagori</a>
+                  <a routerLink="/">Catagori</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" routerLink="/">Latest</a>
+                  <a routerLink="/">Latest</a>
                   <ul class="submenu">
                     <li>
-                      <a class="dropdown-item" routerLink="/product-list">Product list</a>
+                      <a routerLink="/product-list">Product list</a>
                     </li>
                     <li>
-                      <a class="dropdown-item" routerLink="/">Product Details</a>
+                      <a routerLink="/">Product Details</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a class="dropdown-item" routerLink="/blog">Blog</a>
+                  <a routerLink="/blog">Blog</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" routerLink="/pages">Pages</a>
+                  <a routerLink="/pages">Pages</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" routerLink="/contact">Contact</a>
+                  <a routerLink="/contact">Contact</a>
                 </li>
               </ul>
-            </div>
+            </nav>
           </div>
         </nav>
       </div>
@@ -80,24 +80,24 @@
         <ul class="header-right f-right d-none d-xs-block d-flex justify-content-between">
           <li class="d-none d-xl-block">
             <div class="search-container">
-                <form action="/action_page.php">
-                  <input type="text" name="Search" placeholder="Search products">
-                  <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-              </div>
+              <form class="form-box" action="/action_page.php">
+                <input type="text" name="Search" placeholder="Search products">
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+            </div>
           </li>
           <li class=" d-none d-xl-block">
             <div class="favorit-items">
-              <i class="far fa-heart"></i>
+              <i class="fa fa-heart"></i>
             </div>
           </li>
           <li>
             <div class="shopping-card">
-              <a class="dropdown-item" routerLink="/cart"><i class="fas fa-shopping-cart"></i></a>
+              <a routerLink="/cart"><i class="fa fa-shopping-cart"></i></a>
             </div>
           </li>
           <li class="d-none d-lg-block">
-            <a class="nav-link btn header-btn" role="button" routerLink="/login">Sign in</a>
+            <a class="btn header-btn" role="button" routerLink="/login">Sign in</a>
           </li>
         </ul>
       </div>
