@@ -16,12 +16,16 @@
           <div class="login_part_form_iner">
             <h3>Welcome Back ! <br>
               Please Sign in now</h3>
-            <form #form="ngForm" (ngSubmit)="onSubmit()" class="row contact_form" >
+            <form #form="ngForm" (ngSubmit)="onSubmit()" class="row contact_form" novalidate>
               <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="name" [(ngModel)]="model.name" name="name" #name="ngModel" placeholder="Username" required [ngClass]="{ 'is-invalid': form.submitted && name.invalid }" required />
-                <div *ngIf="form.submitted && name.invalid" class="invalid-feedback">
-                    <div *ngIf="name.errors.required">Username is required!</div>
-                </div>
+                <input type="text" class="form-control" [(ngModel)]="model.email" placeholder="Email" name="email" #email="ngModel" required
+                  email>
+                <span class="text-danger" *ngIf="(email.touched || form.submitted) && email.errors?.required">
+                  Email is required
+                </span>
+                <span class="text-danger" *ngIf="email.touched && email.errors?.email">
+                  Enter a valid email address
+                </span>
               </div>
               <div class="col-md-12 form-group p_star">
                 <input [(ngModel)]="model.password" type="password" class="form-control" id="password" name="password" #password="ngModel"

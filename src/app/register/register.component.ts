@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class RegisterComponent implements OnInit {
 
   constructor() { }
+  model: any = {};
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
   }
 
 }

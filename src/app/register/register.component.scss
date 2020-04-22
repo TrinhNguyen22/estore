@@ -1,24 +1,11 @@
-@import "../../shared/shared.component.scss";
+@import "../../styles.scss";
 
-.login_part {
-  .login_part_text, .login_part_form {
+.register_part {
+  .register_part_form {
     padding: 80px 70px;
-    height: 600px;
-    display: table;
-    .login_part_text_iner, .login_part_form_iner {
-      display: table-cell;
-      vertical-align: middle;
-    }
   }
-  .login_part_form {
-    h3 {
-      font-size: 26px;
-      line-height: 36px;
-      font-weight: 700;
-      margin-bottom: 80px;
-    }
+  .register_part_form {
     .p_star {
-      display: inline-block;
       position: relative;
       .form-control {
         border: 0 solid transparent;
@@ -27,15 +14,6 @@
       }
       input {
         background: $color-white;
-      }
-    }
-    .creat_account {
-      margin-top: 11px;
-      label {
-        color: $color-boulder;
-        font-size: 14px;
-        margin-bottom: 0;
-        margin-left: 10px;
       }
     }
     .form-group {
@@ -59,11 +37,5 @@
     -moz-transition: .5s;
     -o-transition: .5s;
     transition: .5s;
-  }
-  .lost_pass {
-    color: $color-boulder;
-    text-align: right;
-    float: right;
-    text-transform: capitalize;
   }
 }

@@ -1,0 +1,59 @@
+<section class="register_part section_padding ">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="register_part_form">
+          <div class="register_part_form_iner">
+            <form class="form" #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && onSubmit()" novalidate>
+              <div class="form-group p_star">
+                <label>First Name</label>
+                <input type="text" class="form-control" [(ngModel)]="model.firstName" name="firstName" #firstName="ngModel"
+                  required>
+                <span class="text-danger"
+                  *ngIf="(firstName.touched || registerForm.submitted) && firstName.errors?.required">
+                  First Name is required
+                </span>
+              </div>
+              <div class="form-group p_star">
+                <label>Last Name</label>
+                <input type="text" class="form-control" [(ngModel)]="model.lastName" name="lastName" #lastName="ngModel"
+                  required>
+                <span class="text-danger"
+                  *ngIf="(lastName.touched || registerForm.submitted) && lastName.errors?.required">
+                  Last Name is required
+                </span>
+              </div>
+              <div class="form-group p_star">
+                <label>Email</label>
+                <input type="text" class="form-control" [(ngModel)]="model.email" name="email" #email="ngModel" required
+                  email>
+                <span class="text-danger" *ngIf="(email.touched || registerForm.submitted) && email.errors?.required">
+                  Email is required
+                </span>
+                <span class="text-danger" *ngIf="email.touched && email.errors?.email">
+                  Enter a valid email address
+                </span>
+              </div>
+              <div class="form-group p_star">
+                <label>Password</label>
+                <input type="password" class="form-control" [(ngModel)]="model.password" name="password"
+                  #password="ngModel" required>
+                <span class="text-danger"
+                  *ngIf="(password.touched || registerForm.submitted) && password.errors?.required">
+                  Password is required
+                </span>
+                <span class="text-danger" *ngIf="password.touched && password.errors?.invalidPassword">
+                  Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                  letter and 1 number
+                </span>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn_3">Register</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
