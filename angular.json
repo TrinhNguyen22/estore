@@ -24,9 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.css",
-              "src/styles.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.scss",
+              "node_modules/font-awesome/css/font-awesome.scss",
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -94,7 +94,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -125,6 +125,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "estore"
+    }
+  },
+  "defaultProject": "estore",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

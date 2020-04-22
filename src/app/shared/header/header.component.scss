@@ -1,0 +1,158 @@
+@import "../../shared/shared.component.scss";
+
+.header-top {
+  padding: 13px 10px;
+  &.top-bg {
+    background: $color-black;
+  }
+  .header-info-right {
+    ul {
+      li {
+        a {
+          padding-left: 36px;
+          font-size: 14px;
+          text-transform: capitalize;
+          color: $color-white;
+        }
+      }
+    }
+  }
+}
+
+.header-bottom {
+  padding: 0 10px;
+  .main-menu {
+    ul {
+      li {
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        a {
+          font-size: 16px;
+          color: $color-black;
+          display: inline-block;
+          text-transform: capitalize;
+          padding: 39px 13px;
+          display: block;
+          font-size: 14px;
+          -webkit-transition: all .3s ease-out 0s;
+          -moz-transition: all .3s ease-out 0s;
+          -ms-transition: all .3s ease-out 0s;
+          -o-transition: all .3s ease-out 0s;
+          transition: all .3s ease-out 0s;
+        }
+        &:hover {
+          > a {
+            color: $color-torch-red;
+          }
+        }
+      }
+      ul {
+        &.submenu {
+          position: absolute;
+          width: 170px;
+          background: $color-white;
+          left: 0;
+          top: 90%;
+          visibility: hidden;
+          opacity: 0;
+          box-shadow: 0 0 10px 3px rgba(0,0,0,.05);
+          padding: 17px 0;
+          border-top: 5px solid $color-torch-red;
+          -webkit-transition: all .2s ease-out 0s;
+          -moz-transition: all .2s ease-out 0s;
+          -ms-transition: all .2s ease-out 0s;
+          -o-transition: all .2s ease-out 0s;
+          transition: all .2s ease-out 0s;
+          > li {
+            margin-left: 7px;
+            display: block;
+            > a {
+              padding: 6px 10px!important;
+              font-size: 14px;
+              color: $color-blue-zodiac;
+              text-transform: capitalize;
+            }
+          }
+        }
+      }
+    }
+  }
+  .header-right {
+    li {
+      padding-left: 14px;
+    }
+    .form-box {
+      position: relative;
+      width: 85%;
+      input {
+        border: 1px solid $color-gallery;
+        border-radius: 30px;
+        padding: 10px 20px;
+        width: 100%;
+      }
+      button {
+        position: absolute;
+        top: 12px;
+        right: 17px;
+        border: none;
+        background: none;
+        i {
+          color: $color-dove-gray;
+          cursor: pointer;
+        }
+      }
+    }
+    .favorit-items, .shopping-card {
+      position: relative;
+    }
+    .favorit-items {
+      i {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        border-radius: 50%;
+        border: 1px solid $color-gallery;
+        color: $color-tundora;
+        font-size: 19px;
+        cursor: pointer;
+      }
+    }
+    .shopping-card {
+      i {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        border-radius: 50%;
+        border: 1px solid $color-gallery;
+        color: $color-tundora;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    }
+    .header-btn {
+      padding: 25px 21px;
+      background: $color-dodger-blue;
+      -moz-user-select: none;
+      text-transform: capitalize;
+      color: $color-white;
+      display: inline-block;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      line-height: 0;
+      margin-bottom: 0;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: color .4s linear;
+      position: relative;
+      z-index: 1;
+      border: 0;
+      overflow: hidden;
+      margin: 0;
+    }
+  }
+}
+

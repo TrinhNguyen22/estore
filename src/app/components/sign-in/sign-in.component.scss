@@ -1,0 +1,69 @@
+@import "../../shared/shared.component.scss";
+
+.login_part {
+  .login_part_text, .login_part_form {
+    padding: 80px 70px;
+    height: 600px;
+    display: table;
+    .login_part_text_iner, .login_part_form_iner {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+  .login_part_form {
+    h3 {
+      font-size: 26px;
+      line-height: 36px;
+      font-weight: 700;
+      margin-bottom: 80px;
+    }
+    .p_star {
+      display: inline-block;
+      position: relative;
+      .form-control {
+        border: 0 solid transparent;
+        border-bottom: 1px solid $color-alto;
+        border-radius: 0;
+      }
+      input {
+        background: $color-white;
+      }
+    }
+    .creat_account {
+      margin-top: 11px;
+      label {
+        color: $color-boulder;
+        font-size: 14px;
+        margin-bottom: 0;
+        margin-left: 10px;
+      }
+    }
+    .form-group {
+      .btn_3 {
+        display: block;
+        width: 100%;
+        margin: 30px 0 17px;
+      }
+    }
+  }
+  .btn_3 {
+    padding: 18px 36px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid $color-dodger-blue;
+    font-size: 15px;
+    color: $color-dodger-blue;
+    text-transform: uppercase;
+    font-weight: 400;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+  }
+  .lost_pass {
+    color: $color-boulder;
+    text-align: right;
+    float: right;
+    text-transform: capitalize;
+  }
+}
