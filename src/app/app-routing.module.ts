@@ -3,11 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductListComponent } from './products/product-list/product-list.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full'
-  },
   { path: 'product-list', component: ProductListComponent },
   { path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) },
   { path: 'check-out', loadChildren: () => import('./check-out/check-out.module').then(m => m.CheckOutModule) },

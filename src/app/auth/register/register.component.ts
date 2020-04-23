@@ -27,11 +27,7 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService,
     private userService: UserService,
-  ) {
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }
-  }
+  ) { }
 
   ngOnInit() {
   }

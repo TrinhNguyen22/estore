@@ -15,6 +15,8 @@ export class SignInComponent implements OnInit {
 
   submitted: boolean;
   invalidLogin: boolean;
+  loginError: string;
+  error: {};
   model: User = {
     id: 0,
     firstName: '',
@@ -27,11 +29,7 @@ export class SignInComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService,
     private userService: UserService,
-  ) {
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }
-  }
+  ) {  }
   ngOnInit(): void {
   }
 
@@ -41,15 +39,16 @@ export class SignInComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-    this.authenticationService.login(form.value.email, form.value.password)
-    .subscribe(
-      data => {
-          this.router.navigate(['/']);
-      },
-      error => {
-          this.invalidLogin = true;
-      }
-    );
+
+    this.authenticationService.login(form.value.email, form.value.password).subscribe((data) => {
+      if (this.authenticationService.isLoggedIn) {
+         this.router.navigate(['/']);
+       } else {
+         this.loginError = 'Username or password is incorrect.';
+       }
+     },
+     error => this.error = error
+   );
   }
 
 }

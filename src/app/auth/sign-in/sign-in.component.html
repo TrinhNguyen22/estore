@@ -16,6 +16,9 @@
           <div class="login_part_form_iner">
             <h3>Welcome Back ! <br>
               Please Sign in now</h3>
+            <div class="alert alert-danger" *ngIf="loginError">
+              {{loginError}}
+            </div>
             <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="row contact_form" novalidate>
               <div class="col-md-12 form-group p_star">
                 <input type="text" class="form-control" [(ngModel)]="model.email" placeholder="Email" name="email" #email="ngModel" required
