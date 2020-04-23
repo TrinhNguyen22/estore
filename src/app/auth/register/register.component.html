@@ -4,7 +4,7 @@
       <div class="col-md-8 mx-auto">
         <div class="register_part_form">
           <div class="register_part_form_iner">
-            <form class="form" #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && onSubmit()" novalidate>
+            <form class="form" #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && onSubmit(registerForm)" novalidate>
               <div class="form-group p_star">
                 <label>First Name</label>
                 <input type="text" class="form-control" [(ngModel)]="model.firstName" name="firstName" #firstName="ngModel"
