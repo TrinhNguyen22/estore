@@ -10,34 +10,41 @@ import { AppSettings } from 'src/app/shared/app-setting';
 })
 export class AuthenticationService {
   errorData: {};
+  redirectUrl: string;
 
-  constructor(private http: HttpClient) {  }
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
+
+  constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
 
   public login(email: string, password: string) {
     return this.http.post<any>(`${AppSettings.API_ENDPOINT}auth/login`, { email, password })
-    .pipe(map(user => {
-        if (user && user.token) {
-          localStorage.setItem('currentUser', JSON.stringify(user));
-        }
+      .pipe(map(user => {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        return user;
       }),
-      catchError(this.handleError)
-    );
+        catchError(this.handleError)
+      );
   }
 
   public isLoggedIn() {
-    if (localStorage.getItem('currentUser')) {
+    if (this.currentUserValue) {
       return true;
     }
     return false;
   }
 
-  public getAuthorizationToken() {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    return currentUser.token;
-  }
-
   public logout() {
     localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
   }
 
   private handleError(error: HttpErrorResponse) {

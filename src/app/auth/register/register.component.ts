@@ -20,14 +20,19 @@ export class RegisterComponent implements OnInit {
     firstName: '',
     lastName: '',
     email: '',
-    password: ''
+    password: '',
+    token: ''
   };
 
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
     private userService: UserService,
-  ) { }
+  ) {
+    if (this.authenticationService.currentUserValue) {
+      this.router.navigate(['/']);
+    }
+  }
 
   ngOnInit() {
   }
@@ -39,13 +44,13 @@ export class RegisterComponent implements OnInit {
       return;
     }
     this.userService.register(registerForm.value)
-    .subscribe(
-      data => {
+      .subscribe(
+        data => {
           this.router.navigate(['/login']);
-      },
-      error => {
+        },
+        error => {
           this.invalidRegister = true;
-      }
-    );
+        }
+      );
   }
 }

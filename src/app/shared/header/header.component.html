@@ -24,7 +24,7 @@
                 <a routerLink="/check-out">Checkout</a>
               </li>
               <li *ngIf="isLoggedIn">
-                <a routerLink="/login">Logout</a>
+                <a (click)="logout()">Logout</a>
               </li>
             </ul>
           </div>

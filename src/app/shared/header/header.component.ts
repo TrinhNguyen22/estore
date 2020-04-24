@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/auth/services/authentication.service';
+import { User } from '../models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +9,18 @@ import { AuthenticationService } from 'src/app/auth/services/authentication.serv
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  constructor(private router: Router, private authenticationService: AuthenticationService) { }
 
-  constructor(private authService: AuthenticationService) { }
-
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
-  public get isLoggedIn() { return this.authService.isLoggedIn(); }
+  public get isLoggedIn() {
+    return this.authenticationService.isLoggedIn();
+  }
+
+  public logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
+  }
 
 }

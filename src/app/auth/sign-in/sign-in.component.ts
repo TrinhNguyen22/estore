@@ -4,6 +4,7 @@ import { User } from 'src/app/shared/models';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { UserService } from '../services/user.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sign-in',
@@ -22,14 +23,19 @@ export class SignInComponent implements OnInit {
     firstName: '',
     lastName: '',
     email: '',
-    password: ''
+    password: '',
+    token: ''
   };
 
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
     private userService: UserService,
-  ) {  }
+  ) {
+    if (this.authenticationService.currentUserValue) {
+      this.router.navigate(['/']);
+    }
+  }
   ngOnInit(): void {
   }
 
@@ -40,15 +46,16 @@ export class SignInComponent implements OnInit {
       return;
     }
 
-    this.authenticationService.login(form.value.email, form.value.password).subscribe((data) => {
-      if (this.authenticationService.isLoggedIn) {
-         this.router.navigate(['/']);
-       } else {
-         this.loginError = 'Username or password is incorrect.';
-       }
-     },
-     error => this.error = error
-   );
+    this.authenticationService.login(form.value.email, form.value.password)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.router.navigate(['/']);
+        },
+        error => {
+          this.loginError = 'Username or password is incorrect.';
+          this.invalidLogin = true;
+        });
   }
 
 }
