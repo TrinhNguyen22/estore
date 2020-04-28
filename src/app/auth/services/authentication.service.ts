@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
-import { User } from 'src/app/shared/models';
-import { AppSettings } from 'src/app/shared/app-setting';
+import { environment } from 'src/environments/environment';
+import { User } from 'src/app/shared/models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +25,9 @@ export class AuthenticationService {
   }
 
   public login(email: string, password: string) {
-    return this.http.post<any>(`${AppSettings.API_ENDPOINT}auth/login`, { email, password })
-      .pipe(map(user => {
+    return this.http.post<any>(`${environment.API_ENDPOINT}auth/login`, { email, password })
+      .pipe(
+        map(user => {
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
         return user;

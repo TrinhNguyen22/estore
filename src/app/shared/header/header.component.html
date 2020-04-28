@@ -23,9 +23,6 @@
               <li>
                 <a routerLink="/check-out">Checkout</a>
               </li>
-              <li *ngIf="isLoggedIn">
-                <a (click)="logout()">Logout</a>
-              </li>
             </ul>
           </div>
         </div>
@@ -99,8 +96,11 @@
               <a routerLink="/cart"><i class="fa fa-shopping-cart"></i></a>
             </div>
           </li>
-          <li class="d-none d-lg-block">
+          <li *ngIf="!isLoggedIn" class="d-none d-lg-block">
             <a class="btn header-btn" role="button" routerLink="/login">Sign in</a>
+          </li>
+          <li *ngIf="isLoggedIn">
+            <a class="btn header-btn" role="button" (click)="logout()">Logout</a>
           </li>
         </ul>
       </div>
