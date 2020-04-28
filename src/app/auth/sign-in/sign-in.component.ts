@@ -51,7 +51,7 @@ export class SignInComponent implements OnInit {
           this.router.navigate(['/']);
         },
         error => {
-          this.loginError = 'Username or password is incorrect.';
+          this.loginError = error;
           this.invalidLogin = true;
         });
   }

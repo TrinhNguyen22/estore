@@ -9,7 +9,7 @@ import { User } from 'src/app/shared/models/user.model';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  errorData: {};
+  errorMessage: string;
   redirectUrl: string;
 
   private currentUserSubject: BehaviorSubject<User>;
@@ -54,11 +54,13 @@ export class AuthenticationService {
       console.error('An error occurred:', error.error.message);
     } else {
       console.error(`Backend returned code ${error.status}, ` + `body was: ${error.error}`);
+
+      if (error.error.header.status === 400) {
+        this.errorMessage = error.error.header.errorMessage;
+      } else {
+        this.errorMessage = 'Something bad happened. Please try again later.';
+      }
     }
-    this.errorData = {
-      errorTitle: 'Oops! Request for document failed',
-      errorDesc: 'Something bad happened. Please try again later.'
-    };
-    return throwError(this.errorData);
+    return throwError(this.errorMessage);
   }
 }
