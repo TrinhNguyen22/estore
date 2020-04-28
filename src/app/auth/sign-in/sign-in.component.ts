@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
-import { UserService } from '../services/user.service';
 import { first } from 'rxjs/operators';
 import { User } from 'src/app/shared/models/user.model';
 
@@ -28,7 +27,6 @@ export class SignInComponent implements OnInit {
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
-    private userService: UserService,
   ) {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);

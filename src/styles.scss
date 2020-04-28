@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 $color-black: #000; 
 $color-white: #fff;
 $color-torch-red: #ff003c;
@@ -7,8 +9,11 @@ $color-dove-gray: #6c6a6a;
 $color-gallery: #eee;
 $color-tundora: #4e4e4e;
 $color-dodger-blue: #2577fd;
-$color-alto: #ddd;
+$color-alto: #d3d3d3;
 $color-boulder: #777;
+$color-mercury: #e8e8e8;
+$color-selective-yellow: #ffbc07;
+$color-mine-shaft: #383838;
 
 body {
   font-family: poppins,sans-serif;
@@ -24,4 +29,18 @@ ul {
 
 .section_padding {
   padding: 200px 0;
+}
+
+.padding-bottom {
+  padding-bottom: 250px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mat-progress-spinner {
+  circle {   
+    stroke: $color-dodger-blue;
+  }
 }

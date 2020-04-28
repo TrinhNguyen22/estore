@@ -24,7 +24,7 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       map(resp => {
         if (resp instanceof HttpResponse) {
-          return resp.clone({ body: resp.body });
+          return resp.clone({ body: resp.body.body });
         }
       },
         (err: any) => {

@@ -1,1 +1,54 @@
-<p>product-list works!</p>
+<section class="latest-product-area padding-bottom">
+  <div class="container">
+    <div class="row product-btn d-flex justify-content-start align-items-start">
+
+      <div class="col-xl-4 col-lg-5 col-md-5">
+        <div class="section-tittle mb-30">
+          <h2>List Products</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="nav-tabContent">
+      <div class="progress-loader d-flex justify-content-center" *ngIf="!loading">
+          <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+      </div>
+
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="row">
+          <div *ngFor="let product of productList" class="col-xl-4 col-lg-4 col-md-6">
+            <div class="single-product mb-60">
+              <div class="product-img">
+                  <img
+                  [src]='product.image'
+                  [title]='product.name'
+                  alt="">
+              </div>
+              <div class="product-caption">
+                <div class="product-ratting">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star low-star"></i>
+                  <i class="fa fa-star low-star"></i>
+                </div>
+                <h4>
+                    <a [routerLink]="['/products', product._id]">
+                      {{ product.name }}
+                    </a>
+                </h4>
+                <div class="price">
+                  <ul>
+                    <li>${{ product.originalPrice }}</li>
+                    <li class="discount">${{ product.salePrice }}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,64 @@
+@import "../../../styles.scss";
+
+.latest-product-area {
+  .product-btn {
+    border-bottom: 1px solid $color-mercury;
+    margin-bottom: 80px;
+    padding: 0 11px;
+    .section-tittle {
+      h2 {
+        color: $color-black;
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1;
+      }
+    }
+  }
+  .single-product {
+    text-align: center;
+    margin-bottom: 50px;
+    .product-img {
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+    .product-caption {
+      .product-ratting {
+        i {
+          color: $color-selective-yellow;
+          margin-bottom: 14px;
+          &.low-star {
+            color: $color-alto;
+          }
+        }
+      }
+      h4 {
+        a {
+          margin-bottom: 16px;
+          font-size: 16px;
+          color: $color-mine-shaft;
+          &:hover {
+            color: $color-torch-red;
+          }
+        }
+      }
+      .price {
+        ul {
+          li {
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 500;
+            padding-right: 13px;
+            &.discount {
+              color: $color-torch-red;
+              text-decoration: line-through;
+            }
+          }
+        }
+      }
+    }
+  }
+}
