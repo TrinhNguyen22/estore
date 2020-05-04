@@ -11,7 +11,7 @@
 
     <div class="tab-content" id="nav-tabContent">
       <div class="progress-loader d-flex justify-content-center" *ngIf="!loading">
-          <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+        <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
       </div>
 
       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
@@ -19,10 +19,7 @@
           <div *ngFor="let product of productList" class="col-xl-4 col-lg-4 col-md-6">
             <div class="single-product mb-60">
               <div class="product-img">
-                  <img
-                  [src]='product.image'
-                  [title]='product.name'
-                  alt="">
+                <img [src]='product.image' [title]='product.name' alt="">
               </div>
               <div class="product-caption">
                 <div class="product-ratting">
@@ -33,9 +30,9 @@
                   <i class="fa fa-star low-star"></i>
                 </div>
                 <h4>
-                    <a [routerLink]="['/products', product._id]">
-                      {{ product.name }}
-                    </a>
+                  <a routerLink="['/products', product._id]">
+                    {{ product.name }}
+                  </a>
                 </h4>
                 <div class="price">
                   <ul>

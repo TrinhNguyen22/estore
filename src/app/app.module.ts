@@ -1,13 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
-import { AuthInterceptor } from './auth/helpers/auth-interceptor';
+import { httpInterceptorProviders } from './interceptors';
+
+const toastrConfig = {
+  timeOut: 3000,
+  positionClass: 'toast-bottom-right',
+  preventDuplicates: true,
+}
 
 @NgModule({
   declarations: [
@@ -17,12 +25,14 @@ import { AuthInterceptor } from './auth/helpers/auth-interceptor';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    ToastrModule.forRoot(toastrConfig)
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../services/authentication.service';
 import { UserService } from '../services/user.service';
 import { User } from 'src/app/shared/models/user.model';
 
@@ -10,30 +9,15 @@ import { User } from 'src/app/shared/models/user.model';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   submitted: boolean;
   invalidRegister: boolean;
-  model: User = {
-    id: 0,
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    token: ''
-  };
+  model: User = new User();
 
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService,
     private userService: UserService,
-  ) {
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }
-  }
-
-  ngOnInit() {
-  }
+  ) { }
 
   onSubmit(registerForm: NgForm) {
     this.submitted = true;
@@ -41,14 +25,10 @@ export class RegisterComponent implements OnInit {
     if (registerForm.invalid) {
       return;
     }
-    this.userService.register(registerForm.value)
-      .subscribe(
-        data => {
-          this.router.navigate(['/login']);
-        },
-        error => {
-          this.invalidRegister = true;
-        }
-      );
+    this.userService.register(registerForm.value).subscribe(
+      data => {
+        this.router.navigate(['/login']);
+      }
+    );
   }
 }

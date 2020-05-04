@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_ENDPOINT: 'https://powerful-sea-64217.herokuapp.com/api/'
+  apiEndpoint: 'https://powerful-sea-64217.herokuapp.com/api/'
 };
 
 /*

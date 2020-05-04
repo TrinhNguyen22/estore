@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'src/app/shared/services/product.service';
+import { ProductService } from 'src/app/components/products/services/product.service';
 import { Product } from 'src/app/shared/models/product.model';
 
 @Component({
@@ -20,12 +20,9 @@ export class ProductListComponent implements OnInit {
   }
 
   public loadProducts() {
-    this.productService.getProducts().subscribe({
-      next: products => {
-        this.productList = products;
-        this.loading = true;
-      },
-      error: err => this.errorMessage = err
+    this.productService.getProducts().subscribe(data => {
+      this.productList = data;
+      this.loading = true;
     });
   }
 

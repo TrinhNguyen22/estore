@@ -3,11 +3,9 @@ import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http
 import { Observable, of, throwError } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Product } from '../models/product.model';
+import { Product } from '../../../shared/models/product.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductService {
 
   constructor(
@@ -15,11 +13,7 @@ export class ProductService {
   ) { }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${environment.API_ENDPOINT}products?page=1`)
-      .pipe(
-        tap(data => console.log('All: ' + JSON.stringify(data))),
-        catchError(this.handleError)
-      );
+    return this.http.get<Product[]>('products?page=1');
   }
 
   getProduct(id: number): Observable<Product | undefined> {
