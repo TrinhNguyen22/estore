@@ -1,0 +1,101 @@
+@import "../../../../../styles.scss";
+
+.card {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  line-height: 1.5em; 
+  border: none;
+  .product-image {
+    background-color: $color-white;
+    display: block;
+    min-height: 238px;
+    overflow: hidden;
+    position: relative;
+    span {
+      &.tag2 {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        padding: 10px 0;
+        color: $color-white;
+        font-size: 11px;
+        text-align: center
+      }
+      &.sale {
+        background-color: #57889c
+      }
+      &.hot {
+        background-color: #a90329
+      }
+    }
+    .carousel-control {
+      &.left {
+        margin-left: 0
+      }
+      &.left, &.right {
+        background: none!important
+      }
+    }
+  }
+
+  .details {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; 
+    .single_product_text {
+      margin: 100px 0 200px;
+      h3 {
+        font-size: 40px;
+      }
+      p {
+        margin-top: 50px;
+        color: $color-dove-gray;
+      }
+      .card_area {
+        margin-top: 60px;
+        .product_count_area {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          p {
+            margin-top: 0!important;
+            color: $color-wild-blue-yonder;
+          }
+          .product_count {
+            border: 1px solid $color-wild-blue-yonder;
+            margin: 0 35px;
+            .product_count_item {
+              width: 50px;
+              height: 50px;
+              line-height: 50px;
+              text-align: center;
+              display: inline-block;
+              i {
+                &:before {
+                  color: $color-wild-blue-yonder;
+                }
+              }
+            }
+            input {
+              background-color: $color-wild-blue-yonder;
+              border: 1px solid $color-wild-blue-yonder;
+              color: $color-white;
+            }
+          }
+        }
+        .add_to_cart {
+          margin-top: 60px;
+        }
+      }
+    }
+  }
+}

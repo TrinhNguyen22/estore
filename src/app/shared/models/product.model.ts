@@ -3,6 +3,7 @@ export class Product {
   name: string;
   image: string;
   thumbnail: string;
+  thumbnails: [];
   shortDescription: string;
   categoryId: string;
   salePrice: number;

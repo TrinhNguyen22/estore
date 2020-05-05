@@ -1,0 +1,130 @@
+@import "../../../styles.scss";
+
+.slider-area {
+  .slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+    .slick-list {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      .slick-track {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        .slick-slide {
+          display: block;
+          position: relative;
+          left: 0px;
+          top: 0px;
+          z-index: 900;
+          opacity: 1;
+          background-image: url("../../../assets/images/h1_hero.jpg");
+          .hero__img {
+            position: relative;
+            bottom: -36px;
+            left: -114px;
+          }
+          .hero__caption {
+            span {
+              font-family: yellowtail,cursive;
+              color: $color-dodger-blue;
+              font-size: 40px;
+              display: inline-block;
+              -webkit-animation-duration: 0.4s;
+              -moz-animation-duration: 0.4s;
+              -o-animation-duration: 0.4s;
+              animation-duration: 0.4s;
+              -webkit-animation-delay: 0.4s;
+              -moz-animation-delay: 0.4s;
+              -o-animation-duration: 0.4s;
+              animation-delay: 0.4s;
+            }
+            h1 {
+              color: $color-shark;
+              text-transform: uppercase;
+              font-size: 100px;
+              font-weight: 700;
+              line-height: 1.1;
+              text-transform: capitalize;
+              margin-bottom: 13px;
+              -webkit-animation-duration: 0.6s;
+              -moz-animation-duration: 0.6s;
+              -o-animation-duration: 0.6s;
+              animation-duration: 0.6s;
+              -webkit-animation-delay: 0.6s;
+              -moz-animation-delay: 0.6s;
+              -o-animation-duration: 0.6s;
+              animation-delay: 0.6s;
+            }
+            p {
+              font-family: playfair display,serif;
+              font-style: italic;
+              font-size: 20px;
+              line-height: 1.2;
+              font-weight: 300;
+              margin-bottom: 39px;
+              color: $color-outer-space;
+              margin-bottom: 50px;
+              text-transform: capitalize;
+              -webkit-animation-duration: 0.8s;
+              -moz-animation-duration: 0.8s;
+              -o-animation-duration: 0.8s;
+              animation-duration: 0.8s;
+              -webkit-animation-delay: 0.8s;
+              -moz-animation-delay: 0.8s;
+              -o-animation-duration: 0.8s;
+              animation-delay: 0.8s;
+            }
+            .hero-btn {
+              padding: 25px 29px;
+              -webkit-animation-duration: 1s;
+              -moz-animation-duration: 1s;
+              -o-animation-duration: 1s;
+              animation-duration: 1s;
+              -webkit-animation-delay: 1s;
+              -moz-animation-delay: 1s;
+              -o-animation-duration:1s;
+              animation-delay: 1s;
+            }
+          }
+        }
+        .slider-height {
+          min-height: 800px;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: cover;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1600px) and (min-width: 1200px) {
+  .slider-area {
+    .slick-slider {
+      .slick-list {
+        .slick-track {
+          .slider-height {
+            min-height: 700px;
+          }
+        }
+      }
+    }
+  }
+}

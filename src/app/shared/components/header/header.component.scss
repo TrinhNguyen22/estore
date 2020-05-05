@@ -169,6 +169,13 @@
       border: 0;
       overflow: hidden;
       margin: 0;
+      &:hover {
+        &:before {
+          transform: scaleX(1);
+          color: $color-white !important;
+          z-index: -1;
+        }
+      }
     }
   }
 }

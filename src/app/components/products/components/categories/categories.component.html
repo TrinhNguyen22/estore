@@ -1,0 +1,28 @@
+<section class="category-area section-padding30">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-tittle text-center mb-85">
+          <h2>Shop by Category</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-4 col-lg-6" *ngFor="let category of categories">
+        <div class="single-category mb-30">
+          <div class="category-img">
+            <img *ngIf="category.name === 'women'" src="../../../assets/images/cat1.jpg" alt="">
+            <img *ngIf="category.name === 'accessories'" src="../../../assets/images/cat2.jpg" alt="">
+            <img *ngIf="category.name === 'men'" src="../../../assets/images/cat3.jpg" alt="">
+            <div class="category-caption">
+              <h2>{{ category.description }}</h2>
+              <span class="best"><a routerLink="/">Best New Deals</a></span>
+              <span class="collection">New Collection</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -2,11 +2,9 @@
   <div class="container">
     <div class="row product-btn d-flex justify-content-start align-items-start">
 
-      <div class="col-xl-4 col-lg-5 col-md-5">
-        <div class="section-tittle mb-30">
-          <h2>List Products</h2>
-        </div>
-      </div>
+    <div class="section-tittle mb-30">
+      <h2>Latest Products</h2>
+    </div>
     </div>
 
     <div class="tab-content" id="nav-tabContent">
@@ -30,7 +28,7 @@
                   <i class="fa fa-star low-star"></i>
                 </div>
                 <h4>
-                  <a routerLink="['/products', product._id]">
+                  <a [routerLink]="['/products', product._id]">
                     {{ product.name }}
                   </a>
                 </h4>

@@ -14,6 +14,9 @@ $color-boulder: #777;
 $color-mercury: #e8e8e8;
 $color-selective-yellow: #ffbc07;
 $color-mine-shaft: #383838;
+$color-shark: #1f2022;
+$color-outer-space: #1f2022;
+$color-wild-blue-yonder: #828bb2;
 
 body {
   font-family: poppins,sans-serif;
@@ -39,8 +42,104 @@ ul {
   margin-bottom: 30px;
 }
 
+.mb-85 {
+  margin-bottom: 85px;
+}
+
+.section-padding30 {
+  padding-top: 200px;
+  padding-bottom: 170px;
+}
+
 .mat-progress-spinner {
   circle {   
     stroke: $color-dodger-blue;
   }
+}
+
+.btn {
+  background: $color-dodger-blue;
+  -moz-user-select: none;
+  text-transform: capitalize;
+  color: $color-white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 0;
+  margin-bottom: 0;
+  padding: 27px 44px;
+  border-radius: 25px;
+  margin: 10px;
+  cursor: pointer;
+  transition: color .4s linear;
+  position: relative;
+  z-index: 1;
+  border: 0;
+  overflow: hidden;
+  margin: 0;
+}
+
+.btn_3 {
+  display: inline-block;
+  padding: 18px 36px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid $color-dodger-blue;
+  font-size: 15px;
+  font-weight: 700;
+  color: $color-dodger-blue;
+  text-transform: uppercase;
+  font-weight: 400;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  &:hover {
+    &:before {
+      transform: scaleX(1);
+      color: $color-white !important;
+      z-index: -1;
+    }
+  }
+}
+
+@-webkit-keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.in-right {
+  -webkit-animation-name: fadeInRight;
+  -moz-animation-name: fadeInRight;
+  -o-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
 }

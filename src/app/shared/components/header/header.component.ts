@@ -29,11 +29,4 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  public search(key: string): void {
-    console.log(key);
-    this.productService.searchProducts(key).subscribe(
-      (data) => this.filteredProducts = data
-    );
-  }
-
 }

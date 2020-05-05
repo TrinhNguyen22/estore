@@ -1,17 +1,60 @@
-<div class='card' *ngIf='product'>
-  <div class='card-header'>
-    {{'Product detail: ' + product.name}}
-  </div>
-
-  <div class='card-body'>
-    <div class='row'>
-      <div class='col-md-8'>
-        <div class='row'>
-          <div class='col-md-4'>Name:</div>
-          <div class='col-md-8'>{{product.name}}</div>
+<div class="container">
+  <div class="card">
+    <div class="progress-loader d-flex justify-content-center" *ngIf="!loading">
+      <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+    </div>
+    <div class="container-fliud">
+      <div class="wrapper row justify-content-center" *ngIf="product">
+        <div class="preview col-lg-12">
+          <div class="product-image">
+            <div id="carouselProductIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselProductIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselProductIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselProductIndicators" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img [src]="product.image" alt="">
+                </div>
+                <div class="carousel-item" *ngFor="let thumbnail of product.thumbnails">
+                  <img [src]="thumbnail" alt="">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselProductIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselProductIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="details col-lg-8">
+          <div class="single_product_text text-center">
+            <h3>{{ product.name }}</h3>
+            <p>
+              {{ product.shortDescription }}
+            </p>
+            <div class="card_area">
+              <div class="product_count_area">
+                <p>Quantity</p>
+                <div class="product_count d-inline-block">
+                  <span class="product_count_item inumber-decrement"> <i class="fa fa-minus"></i></span>
+                  <input class="product_count_item input-number" type="text" value="1" min="0" max="10">
+                  <span class="product_count_item number-increment"> <i class="fa fa-plus"></i></span>
+                </div>
+                <p>${{ product.originalPrice }}</p>
+              </div>
+              <div class="add_to_cart">
+                <a routerLink="/cart" class="btn_3">add to cart</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
