@@ -81,7 +81,7 @@
           <li class="d-none d-xl-block">
             <div class="search-container">
               <div class="form-box">
-                <input type="text" #searchBox id="search-box" placeholder="Search products"/>
+                <input type="text" #searchBox (keyup.enter)="search(searchBox.value)" id="search-box" placeholder="Search products"/>
                 <div class="search-icon" type="submit"><i class="fa fa-search"></i></div>
               </div>
             </div>

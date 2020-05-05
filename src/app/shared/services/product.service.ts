@@ -22,11 +22,28 @@ export class ProductService {
       );
   }
 
-  getProduct(id: number): Observable<Product | undefined> {
-    return this.getProducts()
+  getProduct(id: string): Observable<Product | undefined> {
+    return this.http.get<Product>(`${environment.API_ENDPOINT}product/${id}`)
       .pipe(
-        map((products: Product[]) => products.find(p => p.id === id))
+        catchError(this.handleError)
       );
+  }
+
+  searchProducts(key: string): Observable<Product[]> {
+    if (!key.trim()) {
+      // if not search key, return empty array.
+      return of([]);
+    }
+    return this.http.get<Product[]>(`${environment.API_ENDPOINT}products?key=${key}`).pipe(
+      tap((data) => {
+        console.log(data);
+      })
+    );
+    // data.length ?
+    //    console.log(`found heroes matching "${key}"`) :
+    //    console.log(`no heroes matching "${key}"`)),
+    // catchError(this.handleError<Product[]>('searchHeroes', []))
+    // );
   }
 
   private handleError(err: HttpErrorResponse) {
