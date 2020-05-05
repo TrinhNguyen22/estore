@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 import { User } from 'src/app/shared/models/user.model';
 
 @Injectable({
@@ -25,15 +24,14 @@ export class AuthenticationService {
   }
 
   public login(email: string, password: string) {
-    return this.http.post<any>(`${environment.API_ENDPOINT}auth/login`, { email, password })
+    return this.http.post<any>('auth/login', { email, password })
       .pipe(
         map(user => {
-        let userObj = { email: user.email, token: user.token };
-        localStorage.setItem('currentUser', JSON.stringify(userObj));
-        this.currentUserSubject.next(user);
-        return user;
-      }),
-        catchError(this.handleError)
+          let userObj = { email: user.email, token: user.token };
+          localStorage.setItem('currentUser', JSON.stringify(userObj));
+          this.currentUserSubject.next(user);
+          return user;
+        })
       );
   }
 
@@ -47,20 +45,5 @@ export class AuthenticationService {
   public logout() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
-  }
-
-  private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error occurred:', error.error.message);
-    } else {
-      console.error(`Backend returned code ${error.status}, ` + `body was: ${error.error}`);
-
-      if (error.error.header.status === 400) {
-        this.errorMessage = error.error.header.errorMessage;
-      } else {
-        this.errorMessage = 'Something bad happened. Please try again later.';
-      }
-    }
-    return throwError(this.errorMessage);
   }
 }

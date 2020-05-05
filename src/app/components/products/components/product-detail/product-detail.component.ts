@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/shared/models/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from 'src/app/shared/services/product.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -14,8 +14,8 @@ export class ProductDetailComponent implements OnInit {
   product: Product | undefined;
 
   constructor(private route: ActivatedRoute,
-              private router: Router,
-              private productService: ProductService) {
+    private router: Router,
+    private productService: ProductService) {
   }
 
   ngOnInit() {
@@ -23,7 +23,6 @@ export class ProductDetailComponent implements OnInit {
     if (id) {
       this.getProduct(id);
     }
-    
   }
 
   public getProduct(id: string) {

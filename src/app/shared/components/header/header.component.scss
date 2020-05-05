@@ -1,10 +1,12 @@
-@import "../../../styles.scss";
+@import "../../../../styles.scss";
 
 .header-top {
   padding: 13px 10px;
+
   &.top-bg {
     background: $color-black;
   }
+
   .header-info-right {
     ul {
       li {
@@ -21,12 +23,14 @@
 
 .header-bottom {
   padding: 0 10px;
+
   .main-menu {
     ul {
       li {
         display: inline-block;
         position: relative;
         z-index: 1;
+
         a {
           font-size: 16px;
           color: $color-black;
@@ -41,12 +45,14 @@
           -o-transition: all .3s ease-out 0s;
           transition: all .3s ease-out 0s;
         }
+
         &:hover {
-          > a {
+          >a {
             color: $color-torch-red;
           }
         }
       }
+
       ul {
         &.submenu {
           position: absolute;
@@ -56,7 +62,7 @@
           top: 90%;
           visibility: hidden;
           opacity: 0;
-          box-shadow: 0 0 10px 3px rgba(0,0,0,.05);
+          box-shadow: 0 0 10px 3px rgba(0, 0, 0, .05);
           padding: 17px 0;
           border-top: 5px solid $color-torch-red;
           -webkit-transition: all .2s ease-out 0s;
@@ -64,11 +70,13 @@
           -ms-transition: all .2s ease-out 0s;
           -o-transition: all .2s ease-out 0s;
           transition: all .2s ease-out 0s;
-          > li {
+
+          >li {
             margin-left: 7px;
             display: block;
-            > a {
-              padding: 6px 10px!important;
+
+            >a {
+              padding: 6px 10px !important;
               font-size: 14px;
               color: $color-blue-zodiac;
               text-transform: capitalize;
@@ -78,34 +86,42 @@
       }
     }
   }
+
   .header-right {
     li {
       padding-left: 14px;
     }
+
     .form-box {
       position: relative;
       width: 85%;
+
       input {
         border: 1px solid $color-gallery;
         border-radius: 30px;
         padding: 10px 20px;
         width: 100%;
       }
+
       .search-icon {
         position: absolute;
         top: 12px;
         right: 17px;
         border: none;
         background: none;
+
         i {
           color: $color-dove-gray;
           cursor: pointer;
         }
       }
     }
-    .favorit-items, .shopping-card {
+
+    .favorit-items,
+    .shopping-card {
       position: relative;
     }
+
     .favorit-items {
       i {
         width: 50px;
@@ -119,6 +135,7 @@
         cursor: pointer;
       }
     }
+
     .shopping-card {
       i {
         width: 50px;
@@ -132,6 +149,7 @@
         cursor: pointer;
       }
     }
+
     .header-btn {
       padding: 25px 21px;
       background: $color-dodger-blue;

@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
-import { tap, catchError, map } from 'rxjs/operators';
+import { tap, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Product } from '../models/product.model';
+import { Product } from '../../../shared/models/product.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductService {
 
   constructor(
@@ -15,15 +13,11 @@ export class ProductService {
   ) { }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${environment.API_ENDPOINT}products?page=1`)
-      .pipe(
-        tap(data => console.log('All: ' + JSON.stringify(data))),
-        catchError(this.handleError)
-      );
+    return this.http.get<Product[]>('products?page=1');
   }
 
   getProduct(id: string): Observable<Product | undefined> {
-    return this.http.get<Product>(`${environment.API_ENDPOINT}product/${id}`)
+    return this.http.get<Product>(`${environment.apiEndpoint}product/${id}`)
       .pipe(
         catchError(this.handleError)
       );
@@ -34,7 +28,7 @@ export class ProductService {
       // if not search key, return empty array.
       return of([]);
     }
-    return this.http.get<Product[]>(`${environment.API_ENDPOINT}products?key=${key}`).pipe(
+    return this.http.get<Product[]>(`${environment.apiEndpoint}products?key=${key}`).pipe(
       tap((data) => {
         console.log(data);
       })

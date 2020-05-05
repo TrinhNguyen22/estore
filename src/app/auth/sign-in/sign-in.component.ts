@@ -1,8 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
-import { first } from 'rxjs/operators';
 import { User } from 'src/app/shared/models/user.model';
 
 @Component({
@@ -10,48 +8,28 @@ import { User } from 'src/app/shared/models/user.model';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })
-export class SignInComponent implements OnInit {
+export class SignInComponent {
   submitted: boolean;
   invalidLogin: boolean;
   loginError: string;
   error: {};
-  model: User = {
-    id: 0,
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    token: ''
-  };
+  model: User = new User();
 
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
-  ) {
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }
-  }
-  ngOnInit(): void {
-  }
+  ) { }
 
-  onSubmit(form: NgForm) {
+  onSubmit() {
     this.submitted = true;
 
-    if (form.invalid) {
+    if (!this.model) {
       return;
     }
-
-    this.authenticationService.login(form.value.email, form.value.password)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.router.navigate(['/']);
-        },
-        error => {
-          this.loginError = error;
-          this.invalidLogin = true;
-        });
+    this.authenticationService.login(this.model.email, this.model.password).subscribe(
+      data => {
+        this.router.navigate(['/']);
+      })
   }
 
 }
