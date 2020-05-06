@@ -8,35 +8,54 @@
   .product-image {
     background-color: $color-white;
     display: block;
-    min-height: 238px;
     overflow: hidden;
     position: relative;
-    span {
-      &.tag2 {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        padding: 10px 0;
-        color: $color-white;
-        font-size: 11px;
-        text-align: center
-      }
-      &.sale {
-        background-color: #57889c
-      }
-      &.hot {
-        background-color: #a90329
+    .carousel:focus, .carousel-inner:focus, .carousel-item:focus {
+      outline: none;
+    }
+    .carousel-inner {
+      .carousel-item {
+        height: 400px;
+        text-align: center;
+        img {
+          min-height: 100%;
+        }
       }
     }
-    .carousel-control {
-      &.left {
-        margin-left: 0
+    .carousel-control-prev, .carousel-control-next {
+      .carousel-control-prev-icon, .carousel-control-next-icon {
+        background-image: none;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: $color-twilight;
+        cursor: pointer;
+        &:before {
+          font: normal normal normal 14px/1 FontAwesome;
+          display: inline-block;
+          content: '\f104';
+          color: $color-white;
+          font-size: 28px;
+          position: relative;
+          top: 4px;
+        }
+        &:hover {
+          background-color: $color-wild-blue-yonder;
+        }
       }
-      &.left, &.right {
-        background: none!important
+    }
+    .carousel-control-prev {
+      .carousel-control-prev-icon {
+        &:before {
+          content: '\f104';
+        }
+      }
+    }
+    .carousel-control-next {
+      .carousel-control-next-icon {
+        &:before {
+          content: '\f105';
+        }
       }
     }
   }

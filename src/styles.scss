@@ -19,6 +19,7 @@ $color-outer-space: #1f2022;
 $color-wild-blue-yonder: #828bb2;
 $color-blue-bayoux: #506172;
 $color-tuna: #373b41;
+$color-twilight: #e4d3df;
 
 body {
   font-family: poppins,sans-serif;
@@ -118,6 +119,7 @@ ul {
 
 .black-btn {
   background: $color-black;
+  color: $color-white;
   box-shadow: 0 20px 50px 0 rgba(22,22,22,.2);
   transform: translateY(0px);
   cursor: pointer;

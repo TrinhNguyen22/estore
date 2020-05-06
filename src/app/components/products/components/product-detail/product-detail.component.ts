@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Product } from 'src/app/shared/models/product.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.scss']
+  styleUrls: ['./product-detail.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ProductDetailComponent implements OnInit {
 
@@ -15,7 +16,7 @@ export class ProductDetailComponent implements OnInit {
   loading: boolean;
 
   constructor(private route: ActivatedRoute,
-    private productService: ProductService) {
+              private productService: ProductService) {
   }
 
   ngOnInit() {
