@@ -29,7 +29,6 @@
       li {
         display: inline-block;
         position: relative;
-        z-index: 1;
 
         a {
           font-size: 16px;
@@ -49,6 +48,22 @@
         &:hover {
           >a {
             color: $color-torch-red;
+          }
+          >ul {
+            &.submenu {
+              visibility: visible;
+              opacity: 1;
+              top: 100%;
+              z-index: 999;
+              li {
+                a {
+                  &:hover {
+                    color: $color-torch-red;
+                    background: 0 0;
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -101,6 +116,9 @@
         border-radius: 30px;
         padding: 10px 20px;
         width: 100%;
+        &:focus {
+          outline: none;
+        }
       }
 
       .search-icon {
