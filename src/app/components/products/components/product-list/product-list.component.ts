@@ -22,7 +22,7 @@ export class ProductListComponent implements OnInit {
     this.route.queryParams.subscribe( params => {
       this.key = params['key'];
     });
-    this.key ? this.searchProduct(this.key) : this.loadProducts();
+    this.key ? this.loadProductsByKey(this.key) : this.loadProducts();
   }
 
   public loadProducts() {
@@ -32,8 +32,8 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  public searchProduct(key: string) {
-    this.productService.searchProducts(key).subscribe(data => {
+  public loadProductsByKey(key: string) {
+    this.productService.getProductsByKey(key).subscribe(data => {
       this.productList = data;
       this.loading = true;
     });

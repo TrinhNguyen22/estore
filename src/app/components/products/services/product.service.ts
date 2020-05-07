@@ -18,7 +18,7 @@ export class ProductService {
     return this.http.get<Product>(`product/${id}`);
   }
 
-  searchProducts(key: string): Observable<Product[]> {
+  getProductsByKey(key: string): Observable<Product[]> {
     if (!key.trim()) {
       return of([]);
     }
