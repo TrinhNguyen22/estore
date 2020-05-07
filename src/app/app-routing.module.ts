@@ -12,7 +12,10 @@ const routes: Routes = [
   {
     path: 'product-list',
     component: ProductListComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: {
+      shouldReuse: false
+    }
   },
   {
     path: 'blog',

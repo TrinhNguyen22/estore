@@ -3,13 +3,22 @@
     <div class="row product-btn d-flex justify-content-start align-items-start">
 
     <div class="section-tittle mb-30">
-      <h2>Latest Products</h2>
+      <h2 *ngIf="!key">List Products</h2>
+      <h2 *ngIf="key">Search Results</h2>
     </div>
     </div>
 
     <div class="tab-content" id="nav-tabContent">
       <div class="progress-loader d-flex justify-content-center" *ngIf="!loading">
         <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+      </div>
+
+      <div class="search-no-result" *ngIf="key && !productList?.length && loading">
+        <h3>No search results for <strong>{{ key }}</strong></h3>
+        <p>We couldn't find what you were looking for, but here's some things you can do about it:</p>
+        <ul>
+          <li>If you're using quotes (" or ') or advanced operators like +, - or |, try removing them to broaden your search.</li>
+        </ul>
       </div>
 
       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">

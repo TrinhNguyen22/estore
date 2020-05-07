@@ -1,9 +1,11 @@
+@import "../../../../../styles.scss";
+
 .category-area {
   padding-left: 45px;
   padding-right: 45px;
   .section-tittle {
     h2 {
-      color: #000;
+      color: $color-black;
       font-size: 48px;
       font-weight: 700;
       line-height: 1;
@@ -23,7 +25,7 @@
         right: 52px;
         text-align: right;
         h2 {
-          color: #1f1f1f;
+          color: $color-mine-shaft-dark;
           text-transform: capitalize;
           font-size: 40px;
           font-weight: 700;
@@ -47,14 +49,14 @@
         }
         .collection {
           display: block;
-          color: #0071fe;
+          color: $color-blue-ribbon;
           text-transform: capitalize;
           font-size: 23px;
           line-height: 1.1;
           text-transform: capitalize;
           font-family: yellowtail,cursive;
           font-weight: 600;
-          text-shadow: 0 -3px 0 #fff;
+          text-shadow: 0 -3px 0 $color-white;
           margin-top: -8px;
         }
       }

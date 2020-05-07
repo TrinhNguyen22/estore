@@ -9,7 +9,6 @@ import { ProductService } from './services/product.service';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 
-
 @NgModule({
   declarations: [
     ProductListComponent,

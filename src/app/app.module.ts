@@ -11,6 +11,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { httpInterceptorProviders } from './interceptors';
 import { ProductService } from './components/products/services/product.service';
+import { RouteReuseStrategy } from '@angular/router';
+import { CustomRouteReuseStrategy } from './route-reuse-strategy';
 
 const toastrConfig = {
   timeOut: 3000,
@@ -34,7 +36,11 @@ const toastrConfig = {
   ],
   providers: [
     httpInterceptorProviders,
-    ProductService
+    ProductService,
+    {
+      provide: RouteReuseStrategy,
+      useClass: CustomRouteReuseStrategy
+    }
   ],
   bootstrap: [AppComponent]
 })
