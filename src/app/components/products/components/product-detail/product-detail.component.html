@@ -1,7 +1,7 @@
 <div class="container">
   <div class="card">
-    <div class="progress-loader d-flex justify-content-center" *ngIf="!loading">
-      <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+    <div *ngIf="!loading">
+      <app-progress-spinner></app-progress-spinner>
     </div>
     <div class="container-fliud">
       <div class="wrapper row justify-content-center" *ngIf="product">
@@ -31,7 +31,7 @@
                   <input class="product_count_item input-number" type="text" value="1" min="0" max="10">
                   <span class="product_count_item number-increment"> <i class="fa fa-plus"></i></span>
                 </div>
-                <p>${{ product.originalPrice }}</p>
+                <p>{{ product.originalPrice | currency:'USD' }}</p>
               </div>
               <div class="add_to_cart">
                 <a routerLink="/cart" class="btn_3">add to cart</a>

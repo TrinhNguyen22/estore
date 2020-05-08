@@ -49,27 +49,12 @@
                   <a routerLink="/">Home</a>
                 </li>
                 <li>
-                  <a routerLink="/">Catagori</a>
-                </li>
-                <li>
                   <a routerLink="/">Latest</a>
                   <ul class="submenu">
                     <li>
                       <a routerLink="/product-list">Product list</a>
                     </li>
-                    <li>
-                      <a routerLink="/">Product Details</a>
-                    </li>
                   </ul>
-                </li>
-                <li>
-                  <a routerLink="/blog">Blog</a>
-                </li>
-                <li>
-                  <a routerLink="/pages">Pages</a>
-                </li>
-                <li>
-                  <a routerLink="/contact">Contact</a>
                 </li>
               </ul>
             </nav>
@@ -81,8 +66,7 @@
           <li class="d-none d-xl-block">
             <div class="search-container">
               <div class="form-box">
-                <input type="text" #searchBox (keyup.enter)="search(searchBox.value)" id="search-box" placeholder="Search products"/>
-                <div class="search-icon" type="submit"><i class="fa fa-search"></i></div>
+                <input type="text" name="searchValue" [(ngModel)]="searchValue" (ngModelChange)="search($event)" id="searchBox" placeholder="Search products" />
               </div>
             </div>
           </li>

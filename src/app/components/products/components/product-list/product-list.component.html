@@ -9,8 +9,8 @@
     </div>
 
     <div class="tab-content" id="nav-tabContent">
-      <div class="progress-loader d-flex justify-content-center" *ngIf="!loading">
-        <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+      <div *ngIf="!loading">
+        <app-progress-spinner></app-progress-spinner>
       </div>
 
       <div class="search-no-result" *ngIf="key && !productList?.length && loading">
@@ -43,8 +43,8 @@
                 </h4>
                 <div class="price">
                   <ul>
-                    <li>${{ product.originalPrice }}</li>
-                    <li class="discount">${{ product.salePrice }}</li>
+                    <li>{{ product.originalPrice | currency:'USD' }}</li>
+                    <li class="discount">{{ product.salePrice | currency:'USD' }}</li>
                   </ul>
                 </div>
               </div>

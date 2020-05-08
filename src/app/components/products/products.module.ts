@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ProductsRoutingModule } from './products-routing.module';
@@ -8,6 +7,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductService } from './services/product.service';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,8 +18,8 @@ import { CategoriesComponent } from './components/categories/categories.componen
   imports: [
     CommonModule,
     ProductsRoutingModule,
-    MatProgressSpinnerModule,
-    NgbModule
+    NgbModule,
+    SharedModule
   ],
   providers: [
     ProductService

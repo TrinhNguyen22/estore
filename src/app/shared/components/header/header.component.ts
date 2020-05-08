@@ -10,6 +10,7 @@ import { Product } from '../../models/product.model';
 })
 export class HeaderComponent implements OnInit {
   filteredProducts: Product[] = [];
+  public searchValue: string;
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService
