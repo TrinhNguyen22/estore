@@ -22,6 +22,7 @@ $color-tuna: #373b41;
 $color-twilight: #e4d3df;
 $color-mine-shaft-dark: #1f1f1f;
 $color-blue-ribbon: #0071fe;
+$color-chambray: #415094;
 
 body {
   font-family: poppins,sans-serif;
@@ -93,6 +94,20 @@ ul {
   border: 0;
   overflow: hidden;
   margin: 0;
+}
+
+.btn_1 {
+  display: inline-block;
+  padding: 17px 50px;
+  border-radius: 5px;
+  background-color: $color-dodger-blue;
+  border: 2px solid $color-dodger-blue;
+  font-size: 15px;
+  font-weight: 500;
+  -webkit-transition: .5s;
+  transition: .5s;
+  text-transform: capitalize;
+  color: $color-white;
 }
 
 .btn_3 {
@@ -267,4 +282,18 @@ p {
   line-height: 30px;
   margin-bottom: 15px;
   font-weight: 400;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.error {
+  color: $color-torch-red;
+  margin-top: 20px;
 }

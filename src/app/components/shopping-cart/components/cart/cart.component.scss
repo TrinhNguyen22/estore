@@ -1,0 +1,143 @@
+@import "../../../../../styles.scss";
+
+.cart_inner {
+  .table {
+    margin-bottom: 30px;
+    border-bottom: 1px solid $color-alto;
+    thead {
+      tr {
+        th {
+          border-top: 0;
+          font-size: 14px;
+          font-weight: 500;
+          font-family: playfair display,serif;
+          color: $color-wild-blue-yonder;
+          border-bottom: 0!important;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          padding-top: 30px;
+          padding-bottom: 30px;
+          vertical-align: middle;
+          align-self: center;
+          .media {
+            .d-flex {
+              padding-right: 30px;
+              img {
+                border: 1px solid $color-gallery;
+                border-radius: 3px;
+                max-width: 150px;
+              }
+            }
+            .media-body {
+              vertical-align: middle;
+              align-self: center;
+            }
+          }
+          h5 {
+            font-size: 14px;
+            color: $color-chambray;
+            font-family: playfair display,serif;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    .product_count {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 24px;
+      overflow: hidden;
+      .input-number-decrement {
+        position: absolute;
+        right: 0;
+        bottom: -9px;
+        padding: 10px;
+        border-left: 1px solid $color-alto;
+        display: inline-block;
+      }
+      input {
+        width: 100px;
+        padding-left: 30px;
+        height: 50px;
+        outline: none;
+        box-shadow: none;
+        border: 1px solid $color-gallery;
+        border-radius: 3px;
+      }
+      .input-number-increment {
+        position: absolute;
+        right: 0;
+        top: -7px;
+        padding: 10px;
+        border-left: 1px solid $color-alto;
+        display: inline-block;
+      }
+    }
+    .bottom_button {
+      .btn_1 {
+        border: 1px solid transparent;
+      }
+      .cupon_text {
+        margin-left: -446px;
+      }
+    }
+    .shipping_area {
+      td:nth-child(3) {
+        vertical-align: top;
+      }
+      .shipping_box {
+        margin-left: -250px;
+        text-align: right;
+        .list {
+          li {
+            margin-bottom: 12px;
+            color: $color-wild-blue-yonder;
+            input {
+              margin-left: 10px;
+            }
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+        h6 {
+          font-size: 14px;
+          font-weight: 400;
+          color: $color-chambray;
+          font-family: playfair display,serif;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          i {
+            color: $color-wild-blue-yonder;
+            padding-left: 5px;
+          }
+        }
+        .shipping_select {
+          display: block;
+          width: 100%;
+          background: #f7f7f7;
+          border: 1px solid #f7f7f7;
+          height: 40px;
+          margin-bottom: 20px;
+        }
+        .post_code {
+          display: block;
+          width: 100%;
+          background: #f4f4f4;
+          border: 1px solid #f4f4f4;
+          height: 40px;
+          margin-bottom: 20px;
+          padding: 8px 15px;
+        }
+      }
+    }
+  }
+}
+.cart-empty-page {
+  flex-direction: column;
+  text-align: center;
+}

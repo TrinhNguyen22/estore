@@ -27,14 +27,15 @@
               <div class="product_count_area">
                 <p>Quantity</p>
                 <div class="product_count d-inline-block">
-                  <span class="product_count_item inumber-decrement"> <i class="fa fa-minus"></i></span>
-                  <input class="product_count_item input-number" type="text" value="1" min="0" max="10">
-                  <span class="product_count_item number-increment"> <i class="fa fa-plus"></i></span>
+                  <span class="product_count_item inumber-decrement" (click)="minusQuantity()"> <i class="fa fa-minus"></i></span>
+                  <input class="product_count_item input-number" [(ngModel)]="quantity" type="number" min="1" max="10" readonly>
+                  <span class="product_count_item number-increment" (click)="plusQuantity()"> <i class="fa fa-plus"></i></span>
                 </div>
                 <p>{{ product.originalPrice | currency:'USD' }}</p>
               </div>
+              <div class="error cart-message" *ngIf="quantity == maxQuantity">Maximum order quantity is {{ maxQuantity }}.</div>
               <div class="add_to_cart">
-                <a routerLink="/cart" class="btn_3">add to cart</a>
+                <a (click)="addToCart(product, quantity)" routerLink="/cart" class="btn_3" [attr.disabled]="quantity === 0 || quantity === 100">add to cart</a>
               </div>
             </div>
           </div>

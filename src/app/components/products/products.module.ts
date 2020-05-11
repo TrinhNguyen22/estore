@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductListComponent } from './components/product-list/product-list.component';
@@ -19,7 +20,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     ProductsRoutingModule,
     NgbModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [
     ProductService
