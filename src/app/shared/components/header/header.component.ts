@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/auth/services/authentication.service';
 import { Router } from '@angular/router';
 import { Product } from '../../models/product.model';
+import { Observable } from 'rxjs';
+import { CartService } from 'src/app/components/shopping-cart/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +13,11 @@ import { Product } from '../../models/product.model';
 export class HeaderComponent implements OnInit {
   filteredProducts: Product[] = [];
   public searchValue: string;
+  public totalItem;
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private cartService: CartService
   ) { }
 
   ngOnInit() {
@@ -34,6 +38,10 @@ export class HeaderComponent implements OnInit {
       return;
     }
     this.router.navigate(['/product-list'], { queryParams: { key: keyword } });
+  }
+
+  public getTotalQuantity(): Observable<number> {
+    return this.cartService.getTotalQuantity();
   }
 
 }

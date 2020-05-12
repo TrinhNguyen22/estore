@@ -35,7 +35,7 @@
               </div>
               <div class="error cart-message" *ngIf="quantity == maxQuantity">Maximum order quantity is {{ maxQuantity }}.</div>
               <div class="add_to_cart">
-                <a (click)="addToCart(product, quantity)" routerLink="/cart" class="btn_3" [attr.disabled]="quantity === 0 || quantity === 100">add to cart</a>
+                <a (click)="addToCart(product, quantity)" [routerLink]="" class="btn_3" [attr.disabled]="quantity === 0 || quantity === 100">add to cart</a>
               </div>
             </div>
           </div>
