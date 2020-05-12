@@ -13,12 +13,14 @@ import { CartService } from 'src/app/components/shopping-cart/services/cart.serv
 export class HeaderComponent implements OnInit {
   filteredProducts: Product[] = [];
   public searchValue: string;
-  public totalItem;
+  public totalQuantity: number;
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
     private cartService: CartService
-  ) { }
+  ) { 
+    this.cartService.getTotalQuantity().subscribe((val) => this.totalQuantity = val);;
+  }
 
   ngOnInit() {
   }
@@ -38,10 +40,6 @@ export class HeaderComponent implements OnInit {
       return;
     }
     this.router.navigate(['/product-list'], { queryParams: { key: keyword } });
-  }
-
-  public getTotalQuantity(): Observable<number> {
-    return this.cartService.getTotalQuantity();
   }
 
 }

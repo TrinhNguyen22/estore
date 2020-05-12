@@ -23,6 +23,7 @@ $color-twilight: #e4d3df;
 $color-mine-shaft-dark: #1f1f1f;
 $color-blue-ribbon: #0071fe;
 $color-chambray: #415094;
+$color-dusty-dray: #999999;
 
 body {
   font-family: poppins,sans-serif;
@@ -126,6 +127,8 @@ ul {
   -o-transition: .5s;
   transition: .5s;
   &:hover {
+    background-color: $color-dodger-blue;
+    color: $color-white;
     &:before {
       transform: scaleX(1);
       color: $color-white !important;
@@ -148,6 +151,16 @@ ul {
   margin-bottom: 0;
   padding: 27px 44px;
   border-radius: 25px;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid $color-dusty-dray;
+  color: $color-dove-gray;
+  &:hover {
+    background-color: transparent;
+    color: $color-dove-gray;
+  }
 }
 
 @-webkit-keyframes fadeInRight {
