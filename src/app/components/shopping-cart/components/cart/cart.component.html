@@ -25,7 +25,7 @@
                       <img [src]='item.image' [title]='item.name' alt="">
                   </div>
                   <div class="media-body">
-                    <p>{{ item.name }}</p>
+                    <a routerLink="/products/{{item._id}}">{{ item.name }}</a>
                   </div>
                 </div>
               </td>
@@ -34,9 +34,17 @@
               </td>
               <td>
                 <div class="product_count">
-                  <span class="input-number-decrement"> <i class="ti-minus"></i></span>
-                  <input class="input-number" type="text" value="1" min="0" max="10">
-                  <span class="input-number-increment"> <i class="ti-plus"></i></span>
+                  <span class="product_count_item inumber-decrement" (click)="minusQuantity(item)"> <i class="fa fa-minus"></i></span>
+                  <input class="product_count_item input-number"
+                    [(ngModel)]="item.quantity" type="number" 
+                    readonly>
+                  <span class="product_count_item number-increment" (click)="plusQuantity(item)"> <i class="fa fa-plus"></i></span>
+                </div>
+                <div class="error cart-message" *ngIf="item.quantity == null">
+                  Minimum order quantity of item {{ item.name }} is {{ minQuantity }}.
+                </div>
+                <div class="error cart-message" *ngIf="item.quantity > maxQuantity">
+                  Maximum order quantity of item {{ item.name }} is {{ maxQuantity }}.
                 </div>
               </td>
               <td>
@@ -45,7 +53,7 @@
             </tr>
             <tr class="bottom_button">
               <td>
-                <a class="btn_1" routerLink="/cart">Update Cart</a>
+                <button (click)="updateCart(shoppingCartItems)" class="btn_1">Update Cart</button>
               </td>
               <td></td>
               <td></td>
@@ -76,19 +84,15 @@
                   <ul class="list">
                     <li>
                       Flat Rate: $5.00
-                      <input type="radio" aria-label="Radio button for following text input">
+                      <input type="radio" name="options" value="1">
                     </li>
                     <li>
                       Free Shipping
-                      <input type="radio" aria-label="Radio button for following text input">
+                      <input type="radio" name="options" value="2">
                     </li>
                     <li>
                       Flat Rate: $10.00
-                      <input type="radio" aria-label="Radio button for following text input">
-                    </li>
-                    <li class="active">
-                      Local Delivery: $2.00
-                      <input type="radio" aria-label="Radio button for following text input">
+                    <input type="radio" name="options" value="3">
                     </li>
                   </ul>
                   <h6>

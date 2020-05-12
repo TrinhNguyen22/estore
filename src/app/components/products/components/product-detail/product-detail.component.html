@@ -31,11 +31,11 @@
                   <input class="product_count_item input-number" [(ngModel)]="quantity" type="number" min="1" max="10" readonly>
                   <span class="product_count_item number-increment" (click)="plusQuantity()"> <i class="fa fa-plus"></i></span>
                 </div>
-                <p>{{ product.originalPrice | currency:'USD' }}</p>
+                <p>{{ (product.originalPrice * quantity) | currency:'USD' }}</p>
               </div>
-              <div class="error cart-message" *ngIf="quantity == maxQuantity">Maximum order quantity is {{ maxQuantity }}.</div>
+              <div class="error cart-message" *ngIf="quantity > maxQuantity">Maximum order quantity is {{ maxQuantity }}.</div>
               <div class="add_to_cart">
-                <button (click)="addToCart(product, quantity)" class="btn_3" [disabled]="quantity === maxQuantity">add to cart</button>
+                <button (click)="addToCart(product, quantity)" class="btn_3" [disabled]="quantity > maxQuantity">add to cart</button>
               </div>
             </div>
           </div>

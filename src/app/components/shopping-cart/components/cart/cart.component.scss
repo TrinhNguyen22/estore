@@ -49,13 +49,19 @@
       position: relative;
       margin-bottom: 24px;
       overflow: hidden;
-      .input-number-decrement {
+      .inumber-decrement {
         position: absolute;
         right: 0;
-        bottom: -9px;
+        bottom: 0;
+        height: 25px;
         padding: 10px;
         border-left: 1px solid $color-alto;
         display: inline-block;
+        cursor: pointer;
+        i {
+          position: relative;
+          bottom: 9px;
+        }
       }
       input {
         width: 100px;
@@ -66,14 +72,25 @@
         border: 1px solid $color-gallery;
         border-radius: 3px;
       }
-      .input-number-increment {
+      .number-increment {
         position: absolute;
         right: 0;
-        top: -7px;
+        top: 0;
+        height: 25px;
+        border-bottom: 1px solid $color-alto;
         padding: 10px;
         border-left: 1px solid $color-alto;
         display: inline-block;
+        cursor: pointer;
+        i {
+          position: relative;
+          bottom: 7px;
+        }
       }
+    }
+    .cart-message {
+      width: 95px;
+      word-wrap: break-word;
     }
     .bottom_button {
       .btn_1 {
@@ -132,6 +149,9 @@
         }
       }
     }
+  }
+  .checkout_btn_1 {
+    margin-left: 15px;
   }
 }
 .cart-empty-page {

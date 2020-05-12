@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from 'src/app/shared/models/product.model';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -12,17 +11,18 @@ export class CartService {
   private itemsInCartSubject: BehaviorSubject<Product[]> = new BehaviorSubject([]);
   private itemsInCart: Product[] = [];
 
-  constructor(
-    private toastrService: ToastrService
-  ) {
+  constructor() {
+    let cartItemStorage = localStorage.getItem('cartItems');
+    this.itemsInCartSubject = cartItemStorage 
+    ? new BehaviorSubject<Product[]>(JSON.parse(cartItemStorage))
+    : new BehaviorSubject([]);
+    
     this.itemsInCartSubject.subscribe((item) => this.itemsInCart = item);
   }
 
   public addToCart(item: Product, quantity: number) {
     const tmpItem = { ...item, quantity };
     this.itemsInCartSubject.next([...this.itemsInCart, tmpItem]);
-
-    this.toastrService.success(`${item.name} added to your cart.`);
   }
 
   public getItems(): Observable<Product[]> {
@@ -43,5 +43,11 @@ export class CartService {
         return prev + (curr.quantity * curr.originalPrice);
       }, 0);
     }));
+  }
+
+  public updateCart(cartItems: Product[]) {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    this.itemsInCartSubject.next(cartItems);
+    return cartItems; 
   }
 }

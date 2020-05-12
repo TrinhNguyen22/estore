@@ -8,9 +8,6 @@ import { User } from 'src/app/shared/models/user.model';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  errorMessage: string;
-  redirectUrl: string;
-
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 

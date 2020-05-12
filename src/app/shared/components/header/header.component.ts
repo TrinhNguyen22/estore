@@ -18,11 +18,10 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService,
     private cartService: CartService
-  ) { 
-    this.cartService.getTotalQuantity().subscribe((val) => this.totalQuantity = val);;
-  }
+  ) { }
 
   ngOnInit() {
+    this.cartService.getTotalQuantity().subscribe((val) => this.totalQuantity = val);
   }
 
   public get isLoggedIn() {

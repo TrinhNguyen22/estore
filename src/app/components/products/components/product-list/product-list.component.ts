@@ -10,7 +10,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductListComponent implements OnInit {
   productList: Product[] = [];
-  errorMessage: string;
   loading: boolean;
   key: string;
   constructor(

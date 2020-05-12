@@ -3,6 +3,7 @@ import { Product } from 'src/app/shared/models/product.model';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { CartService } from 'src/app/components/shopping-cart/services/cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,7 +13,6 @@ import { CartService } from 'src/app/components/shopping-cart/services/cart.serv
 })
 export class ProductDetailComponent implements OnInit {
 
-  errorMessage: string;
   product: Product | undefined;
   loading: boolean;
   quantity: number = 1;
@@ -21,7 +21,8 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private productService: ProductService,
-              private cartService: CartService
+              private cartService: CartService,
+              private toastrService: ToastrService
               ) {
   }
 
@@ -36,7 +37,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   public plusQuantity() {
-    if (this.quantity >= this.maxQuantity) {
+    if (this.quantity > this.maxQuantity) {
       return;
     }
     this.quantity++;
@@ -51,5 +52,6 @@ export class ProductDetailComponent implements OnInit {
 
   public addToCart(product: Product, quantity: number) {
     this.cartService.addToCart(product, quantity);
+    this.toastrService.success(`${product.name} added to your cart.`);
   }
 }
