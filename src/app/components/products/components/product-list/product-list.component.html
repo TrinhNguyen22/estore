@@ -9,9 +9,7 @@
     </div>
 
     <div class="tab-content" id="nav-tabContent">
-      <div *ngIf="!loading">
-        <app-progress-spinner></app-progress-spinner>
-      </div>
+      <app-progress-spinner [loading]="loading"></app-progress-spinner>
 
       <div class="search-no-result" *ngIf="key && !productList?.length && loading">
         <h3>No search results for <strong>{{ key }}</strong></h3>

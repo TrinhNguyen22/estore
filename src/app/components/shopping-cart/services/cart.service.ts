@@ -8,8 +8,8 @@ import { map } from 'rxjs/operators';
 })
 export class CartService {
 
-  private itemsInCartSubject: BehaviorSubject<Product[]> = new BehaviorSubject([]);
-  private itemsInCart: Product[] = [];
+  public itemsInCartSubject: BehaviorSubject<Product[]> = new BehaviorSubject([]);
+  public itemsInCart: Product[] = [];
 
   constructor() {
     let cartItemStorage = localStorage.getItem('cartItems');
@@ -21,8 +21,14 @@ export class CartService {
   }
 
   public addToCart(item: Product, quantity: number) {
-    const tmpItem = { ...item, quantity };
-    this.itemsInCartSubject.next([...this.itemsInCart, tmpItem]);
+    const itemCart = this.itemsInCart.find((curr) => curr._id === item._id);
+    if (itemCart) {
+      itemCart.quantity += quantity;
+      this.itemsInCartSubject.next([...this.itemsInCart]);
+    } else {
+      const tmpItem = { ...item, quantity };
+      this.itemsInCartSubject.next([...this.itemsInCart, tmpItem]);
+    }
   }
 
   public getItems(): Observable<Product[]> {
@@ -49,5 +55,12 @@ export class CartService {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
     this.itemsInCartSubject.next(cartItems);
     return cartItems; 
+  }
+
+  public removeFromCart(item: Product) {
+    const currentItems = [...this.itemsInCart];
+    const itemsWithoutRemoved = currentItems.filter((curr) => curr._id !== item._id);
+    this.itemsInCartSubject.next(itemsWithoutRemoved);
+    localStorage.setItem('cartItems', JSON.stringify(itemsWithoutRemoved));
   }
 }

@@ -1,8 +1,6 @@
 <div class="container">
   <div class="card">
-    <div *ngIf="!loading">
-      <app-progress-spinner></app-progress-spinner>
-    </div>
+    <app-progress-spinner [loading]="loading"></app-progress-spinner>
     <div class="container-fliud">
       <div class="wrapper row justify-content-center" *ngIf="product">
         <div class="preview col-lg-12">

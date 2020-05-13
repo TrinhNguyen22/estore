@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Product } from 'src/app/shared/models/product.model';
 import { CartService } from '../../services/cart.service';
+import { ConfirmationDialogService } from 'src/app/shared/services/confirmation-dialog.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cart',
@@ -17,7 +19,9 @@ export class CartComponent implements OnInit {
   minQuantity: number = 1;
 
   constructor(
-    private cartService: CartService
+    private cartService: CartService,
+    private confirmationDialogService: ConfirmationDialogService,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -34,8 +38,22 @@ export class CartComponent implements OnInit {
     if (item.quantity > 1) {
       item.quantity = item.quantity - 1;
     } else {
-      console.log('remove?');
+      this.openConfirmationDialog(item);
     }
+  }
+
+  public openConfirmationDialog(item: Product) {
+    this.confirmationDialogService.confirm(
+      'Please confirm',
+      'Are you sure you want to remove this item from cart?'
+    )
+    .then((confirmed) => {
+      if (confirmed) {
+        this.cartService.removeFromCart(item);
+        this.toastrService.success(`Item ${item.name} has been removed from your cart.`);
+      }
+    })
+    .catch(() => this.toastrService.info('Saving items in your cart.'));
   }
 
   public updateCart(shoppingCartItems: Product[]) {
