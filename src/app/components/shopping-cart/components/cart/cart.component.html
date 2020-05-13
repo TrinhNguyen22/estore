@@ -53,7 +53,7 @@
             </tr>
             <tr class="bottom_button">
               <td>
-                <button (click)="updateCart(shoppingCartItems)" class="btn_1">Update Cart</button>
+                <button (click)="updateCart(shoppingCartItems, true)" class="btn_1">Update Cart</button>
               </td>
               <td></td>
               <td></td>
@@ -108,7 +108,7 @@
         </table>
         <div class="checkout_btn_inner float-right">
           <a class="btn_1" routerLink="/product-list">Continue Shopping</a>
-          <a class="btn_1 checkout_btn_1" routerLink="/check-out" (click)="updateCart(shoppingCartItems)">Proceed to checkout</a>
+          <a class="btn_1 checkout_btn_1" routerLink="/check-out" (click)="updateCart(shoppingCartItems, false)">Proceed to checkout</a>
         </div>
       </div>
     </div>

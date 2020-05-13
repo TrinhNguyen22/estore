@@ -37,21 +37,17 @@ export class CartService {
 
   public getTotalQuantity(): Observable<number> {
     return this.itemsInCartSubject.pipe(map((items: Product[]) => {
-      if (items && items.length) {
-        return items.reduce((prev, curr: Product) => {
-          return prev + curr.quantity;
-        }, 0);
-      }
+      return items.reduce((prev, curr: Product) => {
+        return prev + curr.quantity;
+      }, 0);
     }));
   }
 
   public getTotalAmount(): Observable<number> {
     return this.itemsInCartSubject.pipe(map((items: Product[]) => {
-      if (items && items.length) {
-        return items.reduce((prev, curr: Product) => {
-          return prev + (curr.quantity * curr.originalPrice);
-        }, 0);
-      }
+      return items.reduce((prev, curr: Product) => {
+        return prev + (curr.quantity * curr.originalPrice);
+      }, 0);
     }));
   }
 

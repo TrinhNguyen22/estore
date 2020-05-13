@@ -56,7 +56,8 @@ export class CartComponent implements OnInit {
     .catch(() => this.toastrService.info('Saving items in your cart.'));
   }
 
-  public updateCart(shoppingCartItems: Product[]) {
+  public updateCart(shoppingCartItems: Product[], isUpdate: boolean) {
     this.cartService.updateCart(shoppingCartItems);
+    isUpdate ? this.toastrService.success('Your shopping cart has been updated.') : '';
   }
 }
