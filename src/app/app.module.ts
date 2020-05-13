@@ -19,7 +19,7 @@ const toastrConfig = {
   timeOut: 3000,
   positionClass: 'toast-bottom-right',
   preventDuplicates: true,
-}
+};
 
 @NgModule({
   declarations: [

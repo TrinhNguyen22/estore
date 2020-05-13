@@ -15,8 +15,8 @@ export class CartComponent implements OnInit {
   public shoppingCartItems: Product[] = [];
   public totalAmount: number;
   quantity: number;
-  maxQuantity: number = 10;
-  minQuantity: number = 1;
+  maxQuantity = 10;
+  minQuantity = 1;
 
   constructor(
     private cartService: CartService,
@@ -58,6 +58,8 @@ export class CartComponent implements OnInit {
 
   public updateCart(shoppingCartItems: Product[], isUpdate: boolean) {
     this.cartService.updateCart(shoppingCartItems);
-    isUpdate ? this.toastrService.success('Your shopping cart has been updated.') : '';
+    if (isUpdate) {
+      this.toastrService.success('Your shopping cart has been updated.');
+    }
   }
 }

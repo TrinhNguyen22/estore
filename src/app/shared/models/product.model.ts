@@ -8,5 +8,5 @@ export class Product {
   categoryId: string;
   salePrice: number;
   originalPrice: number;
-  quantity: number
+  quantity: number;
 }

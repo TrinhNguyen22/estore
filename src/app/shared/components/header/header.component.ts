@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public search(key: string) {
-    let keyword = key.trim();
+    const keyword = key.trim();
     if (keyword.length < 2) {
       if (!keyword) {
         this.router.navigate(['/product-list']);

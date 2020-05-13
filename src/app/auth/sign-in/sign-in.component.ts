@@ -26,7 +26,7 @@ export class SignInComponent {
     this.authenticationService.login(this.model.email, this.model.password).subscribe(
       data => {
         this.router.navigate(['/']);
-      })
+      });
   }
 
 }

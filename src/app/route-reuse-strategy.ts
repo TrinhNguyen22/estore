@@ -24,7 +24,9 @@ export class CustomRouteReuseStrategy implements RouteReuseStrategy {
   }
 
   retrieve(route: ActivatedRouteSnapshot): {} {
-    if (!route.routeConfig) return null;
+    if (!route.routeConfig) {
+      return null;
+    }
     return this.handlers[route.routeConfig.path];
   }
 

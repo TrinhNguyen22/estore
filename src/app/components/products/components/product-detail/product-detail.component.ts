@@ -15,9 +15,9 @@ export class ProductDetailComponent implements OnInit {
 
   product: Product | undefined;
   loading: boolean;
-  quantity: number = 1;
-  maxQuantity: number = 10;
-  minQuantity: number = 1;
+  quantity = 1;
+  maxQuantity = 10;
+  minQuantity = 1;
 
   constructor(private route: ActivatedRoute,
               private productService: ProductService,

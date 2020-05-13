@@ -12,11 +12,11 @@ export class CartService {
   private itemsInCart: Product[] = [];
 
   constructor() {
-    let cartItemStorage = localStorage.getItem('cartItems');
-    this.itemsInCartSubject = cartItemStorage 
+    const cartItemStorage = localStorage.getItem('cartItems');
+    this.itemsInCartSubject = cartItemStorage
     ? new BehaviorSubject<Product[]>(JSON.parse(cartItemStorage))
     : new BehaviorSubject([]);
-    
+
     this.itemsInCartSubject.subscribe((item) => this.itemsInCart = item);
   }
 
@@ -54,7 +54,7 @@ export class CartService {
   public updateCart(cartItems: Product[]) {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
     this.itemsInCartSubject.next(cartItems);
-    return cartItems; 
+    return cartItems;
   }
 
   public removeFromCart(item: Product) {

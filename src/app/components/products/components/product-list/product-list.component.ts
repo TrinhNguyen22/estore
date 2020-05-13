@@ -14,12 +14,12 @@ export class ProductListComponent implements OnInit {
   key: string;
   constructor(
     private productService: ProductService,
-    private route:ActivatedRoute
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe( params => {
-      this.key = params['key'];
+      this.key = params[`key`];
     });
     this.key ? this.loadProductsByKey(this.key) : this.loadProducts();
   }
