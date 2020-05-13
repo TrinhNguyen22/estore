@@ -11,7 +11,6 @@ import { User } from 'src/app/shared/models/user.model';
 })
 export class RegisterComponent {
   submitted: boolean;
-  invalidRegister: boolean;
   model: User = new User();
 
   constructor(

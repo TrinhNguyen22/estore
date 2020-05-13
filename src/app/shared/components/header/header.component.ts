@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Product } from '../../models/product.model';
 import { CartService } from 'src/app/components/shopping-cart/services/cart.service';
 import { BehaviorSubject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',

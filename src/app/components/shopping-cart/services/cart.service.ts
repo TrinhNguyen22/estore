@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from 'src/app/shared/models/product.model';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -21,9 +21,9 @@ export class CartService {
   }
 
   public addToCart(item: Product, quantity: number) {
-    const itemCart = this.itemsInCart ? this.itemsInCart.find((curr) => curr._id === item._id) : null;
-    if (itemCart) {
-      itemCart.quantity += quantity;
+    const itemExistInCart = this.itemsInCart.find((curr) => curr._id === item._id);
+    if (itemExistInCart) {
+      itemExistInCart.quantity += quantity;
       this.itemsInCartSubject.next([...this.itemsInCart]);
     } else {
       const tmpItem = { ...item, quantity };
@@ -70,6 +70,6 @@ export class CartService {
 
   public clearAllCart() {
     localStorage.removeItem('cartItems');
-    this.itemsInCartSubject.next(null);
+    this.itemsInCartSubject.next([]);
   }
 }

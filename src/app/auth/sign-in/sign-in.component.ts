@@ -10,9 +10,6 @@ import { User } from 'src/app/shared/models/user.model';
 })
 export class SignInComponent {
   submitted: boolean;
-  invalidLogin: boolean;
-  loginError: string;
-  error: {};
   model: User = new User();
 
   constructor(
