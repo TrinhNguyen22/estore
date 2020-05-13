@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductListComponent } from './components/products/components/product-list/product-list.component';
 import { AuthGuard } from './auth/helpers/auth.guard';
+import { ConfirmationComponent } from './components/check-out/components/confirmation/confirmation.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,11 @@ const routes: Routes = [
     data: {
       shouldReuse: false
     }
+  },
+  {
+    path: 'order-success',
+    component: ConfirmationComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'blog',

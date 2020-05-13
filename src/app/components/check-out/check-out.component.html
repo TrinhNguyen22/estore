@@ -1,1 +1,75 @@
-<p>check-out works!</p>
+<section class="checkout_area section_padding">
+  <div class="container">
+    <div class="cupon_area">
+      <div class="check_title">
+        <h2>
+          Have a coupon?
+          <a routerLink="/">Click here to enter your code</a>
+        </h2>
+      </div>
+      <input type="text" placeholder="Enter coupon code">
+      <a class="tp_btn" routerLink="/">Apply Coupon</a>
+    </div>
+    <div class="billing_details">
+      <div class="row">
+        <div class="col-lg-8">
+          <div>
+            <div class="creat_account">
+              <h3>Shipping Details</h3>
+              <input type="checkbox" id="f-option3" name="selector">
+              <label for="f-option3">Ship to a different address?</label>
+            </div>
+            <textarea class="form-control" name="message" id="message" rows="1" placeholder="Order Notes"></textarea>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="order_box">
+            <h2>Your Order</h2>
+            <ul class="list">
+              <li>
+                <span class="label">Product</span>
+                <span class="last">Total</span>
+              </li>
+              <li *ngFor="let item of shoppingCartItems">
+                <a routerLink="/products/{{item._id}}">{{ item.name }}</a>
+                <span class="middle">x {{ item.quantity }}</span>
+                <span class="last">{{ (item.originalPrice * item.quantity) | currency:'USD' }}</span>
+              </li>
+            </ul>
+            <ul class="list list_2">
+              <li>
+                <span class="label">Subtotal</span>
+                <span class="last">{{ totalAmount | currency:'USD' }}</span>
+              </li>
+              <li>
+                <span class="label">Total</span>
+                <span class="last">{{ totalAmount | currency:'USD' }}</span>
+              </li>
+            </ul>
+            <div class="payment_item">
+              <div class="radion_btn">
+                <input type="radio" id="f-option5" name="selector">
+                <label for="f-option5">Cash on Delivery</label>
+                <div class="payment-subheadline">Pay for your order in cash when it is delivered to your chosen address.</div>
+              </div>
+              <p>
+                Please click on "Order Now", below, to submit your order.
+              </p>
+            </div>
+            <div class="creat_account">
+              <input type="checkbox" id="f-option4" name="selector">
+              <label for="f-option4">I’ve read and accept the </label>
+              <a routerLink="/"> terms &amp; conditions*</a>
+            </div>
+            <button
+              (click)="completed(shoppingCartItems)"
+              class="btn_3"
+              [disabled]="!shoppingCartItems?.length">
+              Place order
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

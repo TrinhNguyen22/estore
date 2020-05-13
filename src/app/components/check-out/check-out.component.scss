@@ -1,0 +1,125 @@
+@import "../../../styles.scss";
+
+.check_title h2 {
+  font-size: 14px;
+  font-weight: 400;
+  background: $color-alabaster;
+  line-height: 40px;
+  padding-left: 30px;
+  margin-bottom: 0;
+}
+.cupon_area {
+  margin-bottom: 40px;
+  input {
+    max-width: 730px;
+    width: 100%;
+    display: block;
+    height: 40px;
+    border-radius: 3px;
+    padding: 0 15px;
+    border: 1px solid $color-gallery;
+    outline: none;
+    box-shadow: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+.billing_details {
+  h3 {
+    font-size: 18px;
+    color: $color-chambray;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+  }
+  .creat_account {
+    #f-option3 {
+      margin-right: 5px;
+    }
+    input {
+      border-radius: 3px;
+      color: $color-wild-blue-yonder;
+    }
+    textarea {
+      height: 150px;
+      border-radius: 3px;
+      margin-top: 15px;
+      border: 1px solid $color-gallery;
+    }
+  }
+}
+.order_box {
+  background: $color-alabaster;
+  padding: 30px;
+  h2 {
+    border-bottom: 1px solid $color-gallery;
+    font-size: 18px;
+    font-weight: 500;
+    color: $color-chambray;
+    padding-bottom: 15px;
+  }
+  .list {
+    li {
+      border-bottom: 1px solid $color-gallery;
+      span, a {
+        font-size: 14px;
+        color: $color-wild-blue-yonder;
+        font-weight: 400;
+        line-height: 42px;
+        &.middle {
+          float: none;
+          width: 50px;
+          text-align: right;
+          display: inline-block;
+          margin-left: 30px;
+          color: $color-chambray;
+        }
+        &.last {
+          float: right;
+        }
+      }
+    }
+    &.list_2 {
+      li {
+        span, a {
+          text-transform: uppercase;
+          color: $color-chambray;
+          font-weight: 500;
+          &.last {
+            color: $color-wild-blue-yonder;
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+  }
+  .payment_item {
+    .radion_btn {
+      input[type=radio] {
+        position: absolute;
+        top: 3px;
+      }
+    }
+    p {
+      background: $color-white;
+      padding: 20px;
+    }
+  }
+  .creat_account {
+    margin: 15px 0;
+    label {
+      padding-left: 10px;
+      font-size: 12px;
+      color: $color-chambray;
+    }
+    a {
+      color: $color-dodger-blue;
+    }
+  }
+  .btn_3 {
+    display: block;
+    line-height: 38px;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+  }
+}

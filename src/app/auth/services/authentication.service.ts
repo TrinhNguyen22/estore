@@ -46,7 +46,6 @@ export class AuthenticationService {
   public logout() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
-    localStorage.removeItem('cartItems');
-    this.cartService.itemsInCartSubject.next(null);
+    this.cartService.clearAllCart();
   }
 }

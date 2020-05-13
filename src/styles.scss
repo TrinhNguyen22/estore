@@ -24,6 +24,8 @@ $color-mine-shaft-dark: #1f1f1f;
 $color-blue-ribbon: #0071fe;
 $color-chambray: #415094;
 $color-dusty-dray: #999999;
+$color-alabaster: #f7f7f7;
+$color-silver: #cdcdcd;
 
 body {
   font-family: poppins,sans-serif;
@@ -82,7 +84,6 @@ ul {
   display: inline-block;
   font-size: 18px;
   font-weight: 400;
-  letter-spacing: 1px;
   line-height: 0;
   margin-bottom: 0;
   padding: 27px 44px;
@@ -146,11 +147,25 @@ ul {
   display: inline-block;
   font-size: 18px;
   font-weight: 400;
-  letter-spacing: 1px;
   line-height: 0;
   margin-bottom: 0;
   padding: 27px 44px;
   border-radius: 25px;
+}
+
+.tp_btn {
+  border: 1px solid $color-gallery;
+  display: inline-block;
+  line-height: 38px;
+  padding: 0 40px;
+  color: $color-chambray;
+  text-transform: capitalize;
+  font-weight: 500;
+  border-radius: 50px;
+  &:hover {
+    background-color: $color-dodger-blue;
+    color: $color-white;
+  }
 }
 
 button:disabled,
@@ -309,4 +324,25 @@ input[type=number] {
 .error {
   color: $color-torch-red;
   margin-top: 20px;
+}
+
+.radion_btn {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  label {
+    display: block;
+    position: relative;
+    padding: 0 25px 21px;
+    height: 14px;
+    z-index: 9;
+    cursor: pointer;
+    -webkit-transition: all .25s linear;
+    font-family: playfair display,serif;
+    font-weight: 500;
+    color: $color-chambray;
+    font-size: 13px;
+    letter-spacing: .25px;
+    text-transform: uppercase;
+  }
 }

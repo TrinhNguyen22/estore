@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from 'src/app/shared/models/product.model';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -8,8 +8,8 @@ import { map } from 'rxjs/operators';
 })
 export class CartService {
 
-  public itemsInCartSubject: BehaviorSubject<Product[]> = new BehaviorSubject([]);
-  public itemsInCart: Product[] = [];
+  private itemsInCartSubject: BehaviorSubject<Product[]> = new BehaviorSubject([]);
+  private itemsInCart: Product[] = [];
 
   constructor() {
     let cartItemStorage = localStorage.getItem('cartItems');
@@ -21,7 +21,7 @@ export class CartService {
   }
 
   public addToCart(item: Product, quantity: number) {
-    const itemCart = this.itemsInCart.find((curr) => curr._id === item._id);
+    const itemCart = this.itemsInCart ? this.itemsInCart.find((curr) => curr._id === item._id) : null;
     if (itemCart) {
       itemCart.quantity += quantity;
       this.itemsInCartSubject.next([...this.itemsInCart]);
@@ -37,17 +37,21 @@ export class CartService {
 
   public getTotalQuantity(): Observable<number> {
     return this.itemsInCartSubject.pipe(map((items: Product[]) => {
-      return items.reduce((prev, curr: Product) => {
-        return prev + curr.quantity;
-      }, 0);
+      if (items && items.length) {
+        return items.reduce((prev, curr: Product) => {
+          return prev + curr.quantity;
+        }, 0);
+      }
     }));
   }
 
   public getTotalAmount(): Observable<number> {
     return this.itemsInCartSubject.pipe(map((items: Product[]) => {
-      return items.reduce((prev, curr: Product) => {
-        return prev + (curr.quantity * curr.originalPrice);
-      }, 0);
+      if (items && items.length) {
+        return items.reduce((prev, curr: Product) => {
+          return prev + (curr.quantity * curr.originalPrice);
+        }, 0);
+      }
     }));
   }
 
@@ -62,5 +66,10 @@ export class CartService {
     const itemsWithoutRemoved = currentItems.filter((curr) => curr._id !== item._id);
     this.itemsInCartSubject.next(itemsWithoutRemoved);
     localStorage.setItem('cartItems', JSON.stringify(itemsWithoutRemoved));
+  }
+
+  public clearAllCart() {
+    localStorage.removeItem('cartItems');
+    this.itemsInCartSubject.next(null);
   }
 }
